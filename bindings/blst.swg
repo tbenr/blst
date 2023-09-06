@@ -727,6 +727,7 @@ import java.nio.file.*;
     blst::P1* cneg,         blst::P2* cneg,
     blst::P1* neg,          blst::P2* neg,
     blst::P1* add,          blst::P2* add,
+    blst::P1* add16,
     blst::P1* dbl,          blst::P2* dbl,
     blst::PT* mul,          blst::PT* sqr,
     blst::PT* final_exp,

@@ -329,6 +329,42 @@ public:
     {   blst_p1_cneg(&point, true); return this;   }
     P1* add(const P1& a)
     {   blst_p1_add_or_double(&point, &point, a); return this;   }
+    P1* add16(
+        const P1& a01,
+        const P1& a02,
+        const P1& a03,
+        const P1& a04,
+        const P1& a05,
+        const P1& a06,
+        const P1& a07,
+        const P1& a08,
+        const P1& a09,
+        const P1& a10,
+        const P1& a11,
+        const P1& a12,
+        const P1& a13,
+        const P1& a14,
+        const P1& a15,
+        const P1& a16)
+    {
+        blst_p1_add_or_double(&point, &point, a01);
+        blst_p1_add_or_double(&point, &point, a02);
+        blst_p1_add_or_double(&point, &point, a03);
+        blst_p1_add_or_double(&point, &point, a04);
+        blst_p1_add_or_double(&point, &point, a05);
+        blst_p1_add_or_double(&point, &point, a06);
+        blst_p1_add_or_double(&point, &point, a07);
+        blst_p1_add_or_double(&point, &point, a08);
+        blst_p1_add_or_double(&point, &point, a09);
+        blst_p1_add_or_double(&point, &point, a10);
+        blst_p1_add_or_double(&point, &point, a11);
+        blst_p1_add_or_double(&point, &point, a12);
+        blst_p1_add_or_double(&point, &point, a13);
+        blst_p1_add_or_double(&point, &point, a14);
+        blst_p1_add_or_double(&point, &point, a15);
+        blst_p1_add_or_double(&point, &point, a16);
+        return this;
+    }
     P1* add(const P1_Affine &a)
     {   blst_p1_add_or_double_affine(&point, &point, a); return this;   }
     P1* dbl()
@@ -586,6 +622,41 @@ public:
             blst_p2_add_or_double_affine(&point, &point, in);
         else
             throw BLST_POINT_NOT_IN_GROUP;
+    }
+    void aggregate16(
+        const P2_Affine& in01,
+        const P2_Affine& in02,
+        const P2_Affine& in03,
+        const P2_Affine& in04,
+        const P2_Affine& in05,
+        const P2_Affine& in06,
+        const P2_Affine& in07,
+        const P2_Affine& in08,
+        const P2_Affine& in09,
+        const P2_Affine& in10,
+        const P2_Affine& in11,
+        const P2_Affine& in12,
+        const P2_Affine& in13,
+        const P2_Affine& in14,
+        const P2_Affine& in15,
+        const P2_Affine& in16)
+    {
+        aggregate(in01);
+        aggregate(in02);
+        aggregate(in03);
+        aggregate(in04);
+        aggregate(in05);
+        aggregate(in06);
+        aggregate(in07);
+        aggregate(in08);
+        aggregate(in09);
+        aggregate(in10);
+        aggregate(in11);
+        aggregate(in12);
+        aggregate(in13);
+        aggregate(in14);
+        aggregate(in15);
+        aggregate(in16);
     }
     P2* sign_with(const SecretKey& sk)
     {   blst_sign_pk_in_g1(&point, &point, &sk.key); return this;   }
